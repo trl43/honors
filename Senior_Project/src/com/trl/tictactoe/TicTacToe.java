@@ -1,21 +1,35 @@
-package com.trl.main;
+package com.trl.tictactoe;
 
-import com.trl.tictactoe.TicTacToe;
+import com.trl.main.GameApp;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class HomeScene extends GameApp {
+public class TicTacToe extends GameApp {
 	
-	public HomeScene(Stage primary) {
+	public TicTacToe(Stage primary) {
 		super(primary, new GridPane(), primary.getWidth(), primary.getHeight());
+	}
+	
+	
+	
+	public void play() {
+		checkForWin();
+		
+	}
+	
+	
+	
+	private boolean checkForWin() {
+		return false;
 	}
 	
 	
@@ -24,12 +38,18 @@ public class HomeScene extends GameApp {
 	public VBox getOverviewArea() {
 		VBox layout = new VBox();
 		
-		Button b = new Button("But");
+		Button b = new Button("Play!");
 		b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-		    	
+		    	if(gridpane.getChildren().get(1) instanceof TilePane) {
+		    		for(Node n : ((TilePane)gridpane.getChildren().get(1)).getChildren()) {
+	    				n.setDisable(false);
+	    			}
+		    	}else {
+		    		throw new ClassCastException("The play area is not a TilePane and it should be in this case.");
+		    	}
 		    }
 		});
 		
@@ -42,102 +62,84 @@ public class HomeScene extends GameApp {
 	
 	@Override
 	public TilePane getPlayArea(Stage primary) {
-		Button b1 = new Button("Tic-Tac-Toe");
+		Button b1 = new Button("");
 		b1.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b1.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-		    	TicTacToe G = new TicTacToe(primary);
-		        primary.setScene(G);
-		        G.play();
+		    	
 		    }
 		});
 		
-		Button b2 = new Button("2");
+		Button b2 = new Button("");
 		b2.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b2.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	
 		    }
 		});
 		
-		Button b3 = new Button("3");
+		Button b3 = new Button("");
 		b3.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b3.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	
 		    }
 		});
 		
-		Button b4 = new Button("4");
+		Button b4 = new Button("");
 		b4.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b4.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	
 		    }
 		});
 		
-		Button b5 = new Button("5");
+		Button b5 = new Button("");
 		b5.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b5.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	
 		    }
 		});
 		
-		Button b6 = new Button("6");
+		Button b6 = new Button("");
 		b6.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b6.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	
 		    }
 		});
 		
-		Button b7 = new Button("7");
+		Button b7 = new Button("");
 		b7.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b7.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	
 		    }
 		});
 		
-		Button b8 = new Button("8");
+		Button b8 = new Button("");
 		b8.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b8.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	
 		    }
 		});
 		
-		Button b9 = new Button("9");
+		Button b9 = new Button("");
 		b9.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b9.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	
 		    }
 		});
 		
@@ -150,6 +152,9 @@ public class HomeScene extends GameApp {
 		layout.setPrefTileWidth((primary.getWidth()*(gridpane.getColumnConstraints().get(1).getPercentWidth()/100))*0.329);
 		layout.setPrefTileHeight(primary.getHeight()*0.32);
 		layout.getChildren().addAll(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+		for(Node n : layout.getChildren()) {
+			n.setDisable(true);
+		}
 		
 		return layout;
 	}

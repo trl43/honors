@@ -3,8 +3,7 @@ package com.trl.main;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.scene.layout.TilePane;
-import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -21,7 +20,7 @@ public class Main extends Application {
 		primaryStage.setTitle("Game Collection");
 		primaryStage.centerOnScreen();
 		primaryStage.setResizable(false);
-		primaryStage.setScene(new LaunchScene(new VBox(60), 400, 300));
+		primaryStage.setScene(new LaunchScene());
 		primaryStage.show();
 		
 		new Timeline(new KeyFrame(Duration.millis(1000), ae -> showHomeScene(primaryStage))).play();
@@ -30,10 +29,12 @@ public class Main extends Application {
 	
 	
 	private void showHomeScene(Stage primaryStage) {
-		primaryStage.setScene(new HomeScene(new TilePane() ,600, 550));
+		primaryStage.setWidth(Screen.getPrimary().getVisualBounds().getWidth());
+		primaryStage.setHeight(Screen.getPrimary().getVisualBounds().getHeight());
 		primaryStage.setResizable(true);
+		primaryStage.centerOnScreen();
+//		primaryStage.setFullScreen(true);
+		primaryStage.setScene(new HomeScene(primaryStage));
 	}
 	
 }
-
-

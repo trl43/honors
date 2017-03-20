@@ -12,8 +12,12 @@ import javafx.scene.text.Font;
 
 public class LaunchScene extends Scene {
 
-	public LaunchScene(VBox root, double width, double height) {
-		super(root, width, height);
+	private final static double width = 400;
+	private final static double height = 300;
+	private static VBox layout = new VBox(60);
+	
+	public LaunchScene() {
+		super(layout, width, height);
 		
 		// Set the loading scene title label
 		Label label = new Label("Welcome to Games");
@@ -26,11 +30,10 @@ public class LaunchScene extends Scene {
 		indicator.setMaxSize(50, 50);
 		indicator.setLayoutY(100);
 		
-		root.setAlignment(Pos.CENTER);
-		root.getChildren().add(label);
-		root.getChildren().add(indicator);
-		root.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
-		
+		layout.setAlignment(Pos.CENTER);
+		layout.getChildren().add(label);
+		layout.getChildren().add(indicator);
+		layout.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
 	}
 
 }
