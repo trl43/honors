@@ -9,6 +9,8 @@ import javafx.util.Duration;
 
 public class Main extends Application {
 	
+	public static Stage currentStage;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -17,6 +19,7 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		currentStage = primaryStage;
 		primaryStage.setTitle("Game Collection");
 		primaryStage.centerOnScreen();
 		primaryStage.setResizable(false);
@@ -34,7 +37,7 @@ public class Main extends Application {
 		primaryStage.setResizable(true);
 		primaryStage.centerOnScreen();
 //		primaryStage.setFullScreen(true);
-		primaryStage.setScene(new HomeScene(primaryStage));
+		primaryStage.setScene(new HomeScene());
 	}
 	
 }

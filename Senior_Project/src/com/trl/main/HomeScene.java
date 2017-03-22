@@ -10,12 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class HomeScene extends GameApp {
 	
-	public HomeScene(Stage primary) {
-		super(primary, new GridPane(), primary.getWidth(), primary.getHeight());
+	public HomeScene() {
+		super(Main.currentStage, new GridPane(), Main.currentStage.getWidth(), Main.currentStage.getHeight());
 	}
 	
 	
@@ -24,12 +23,12 @@ public class HomeScene extends GameApp {
 	public VBox getOverviewArea() {
 		VBox layout = new VBox();
 		
-		Button b = new Button("But");
+		Button b = new Button("Return Home");
 		b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-		    	
+		    	System.out.println("This is home!");
 		    }
 		});
 		
@@ -41,15 +40,14 @@ public class HomeScene extends GameApp {
 	
 	
 	@Override
-	public TilePane getPlayArea(Stage primary) {
+	public TilePane getPlayArea() {
 		Button b1 = new Button("Tic-Tac-Toe");
 		b1.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b1.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-		    	TicTacToe G = new TicTacToe(primary);
-		        primary.setScene(G);
-		        G.play();
+		    	TicTacToe G = new TicTacToe();
+		    	Main.currentStage.setScene(G);
 		    }
 		});
 		
@@ -147,8 +145,8 @@ public class HomeScene extends GameApp {
 		layout.setAlignment(Pos.CENTER);
 		layout.setPrefColumns(3);
 		layout.setPrefRows(3);
-		layout.setPrefTileWidth((primary.getWidth()*(gridpane.getColumnConstraints().get(1).getPercentWidth()/100))*0.329);
-		layout.setPrefTileHeight(primary.getHeight()*0.32);
+		layout.setPrefTileWidth((Main.currentStage.getWidth()*(baseGridLayout.getColumnConstraints().get(1).getPercentWidth()/100))*0.329);
+		layout.setPrefTileHeight(Main.currentStage.getHeight()*0.32);
 		layout.getChildren().addAll(b1,b2,b3,b4,b5,b6,b7,b8,b9);
 		
 		return layout;

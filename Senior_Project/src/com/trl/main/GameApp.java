@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 public abstract class GameApp extends Scene {
 	
-	protected GridPane gridpane;
+	protected GridPane baseGridLayout;
 	
 	public GameApp(Stage primary, GridPane root, double width, double height) {
 		super(root, width, height);
@@ -21,18 +21,18 @@ public abstract class GameApp extends Scene {
 	    column2.setPercentWidth(75);
 	    root.getColumnConstraints().addAll(column1, column2);
 		root.setAlignment(Pos.CENTER);
-		gridpane = root;
+		baseGridLayout = root;
 		
 		Pane overviewArea = getOverviewArea();
-		Pane playArea = getPlayArea(primary);
+		Pane playArea = getPlayArea();
 		
-		gridpane.add(overviewArea, 0, 0);
-		gridpane.add(playArea, 1, 0);
+		baseGridLayout.add(overviewArea, 0, 0);
+		baseGridLayout.add(playArea, 1, 0);
 	}
 	
 	
 	public abstract Pane getOverviewArea();
 	
 	
-	public abstract Pane getPlayArea(Stage primary);
+	public abstract Pane getPlayArea();
 }
