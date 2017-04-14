@@ -80,8 +80,6 @@ public class TicTacToe extends GameApp {
 	
 	@Override
 	public VBox getOverviewArea() {
-		VBox layout = new VBox(5);
-		
 		Button returnButton = new Button("Return Home");
 		returnButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		returnButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -167,6 +165,7 @@ public class TicTacToe extends GameApp {
 		    }
 		});
 		
+		VBox layout = new VBox(5);
 		layout.getChildren().addAll(returnButton, spacer1, instructionsLabel, instructionsText, spacer2, messagesLabel, messagesText, choiceLabel, choiceCombo, spacer3, playButton, playAgainButton);
 		
 		return layout;
@@ -216,46 +215,55 @@ public class TicTacToe extends GameApp {
 		b1.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b1.setOnAction(buttonPressed);
 		b1.setId("1");
+		b1.setStyle("-fx-font: 60 arial;");
 		
 		Button b2 = new Button("");
 		b2.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b2.setOnAction(buttonPressed);
 		b2.setId("2");
+		b2.setStyle("-fx-font: 60 arial;");
 		
 		Button b3 = new Button("");
 		b3.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b3.setOnAction(buttonPressed);
 		b3.setId("3");
+		b3.setStyle("-fx-font: 60 arial;");
 		
 		Button b4 = new Button("");
 		b4.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b4.setOnAction(buttonPressed);
 		b4.setId("4");
+		b4.setStyle("-fx-font: 60 arial;");
 		
 		Button b5 = new Button("");
 		b5.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b5.setOnAction(buttonPressed);
 		b5.setId("5");
+		b5.setStyle("-fx-font: 60 arial;");
 		
 		Button b6 = new Button("");
 		b6.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b6.setOnAction(buttonPressed);
 		b6.setId("6");
+		b6.setStyle("-fx-font: 60 arial;");
 		
 		Button b7 = new Button("");
 		b7.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b7.setOnAction(buttonPressed);
 		b7.setId("7");
+		b7.setStyle("-fx-font: 60 arial;");
 		
 		Button b8 = new Button("");
 		b8.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b8.setOnAction(buttonPressed);
 		b8.setId("8");
+		b8.setStyle("-fx-font: 60 arial;");
 		
 		Button b9 = new Button("");
 		b9.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b9.setOnAction(buttonPressed);
 		b9.setId("9");
+		b9.setStyle("-fx-font: 60 arial;");
 		
 		
 		TilePane layout = new TilePane();

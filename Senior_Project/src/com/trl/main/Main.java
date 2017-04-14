@@ -32,9 +32,9 @@ public class Main extends Application {
 	
 	
 	private void showHomeScene(Stage primaryStage) {
-		primaryStage.setWidth(Screen.getPrimary().getVisualBounds().getWidth());
-		primaryStage.setHeight(Screen.getPrimary().getVisualBounds().getHeight());
-		primaryStage.setResizable(true);
+		primaryStage.setWidth(Screen.getPrimary().getVisualBounds().getWidth()-100);
+		primaryStage.setHeight(Screen.getPrimary().getVisualBounds().getHeight()-100);
+//		primaryStage.setResizable(true);
 		primaryStage.centerOnScreen();
 //		primaryStage.setFullScreen(true);
 		primaryStage.setScene(new HomeScene());

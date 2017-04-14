@@ -1,13 +1,19 @@
 package com.trl.main;
 
+import java.io.IOException;
+
 import com.trl.tictactoe.TicTacToe;
 
+import ConnectFour.ConnectFour;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
@@ -23,8 +29,9 @@ public class HomeScene extends GameApp {
 	public VBox getOverviewArea() {
 		VBox layout = new VBox();
 		
-		Button b = new Button("Return Home");
+		Button b = new Button("Welcome Home!");
 		b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		b.setDisable(true);
 		b.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
@@ -32,7 +39,27 @@ public class HomeScene extends GameApp {
 		    }
 		});
 		
-		layout.getChildren().add(b);
+		Pane spacer1 = new Pane();
+		spacer1.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		spacer1.setPrefHeight(30);
+		
+		Label messagesLabel1 = new Label("Messages:");
+		messagesLabel1.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		
+		TextArea messagesText = new TextArea("Select a game to begin playing!");
+		messagesText.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		messagesText.setPrefHeight(40);
+		messagesText.setEditable(false);
+		messagesText.setWrapText(true);
+		
+		Pane spacer2 = new Pane();
+		spacer2.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		spacer2.setPrefHeight(30);
+		
+		Label messagesLabel2 = new Label("HighScore: 0");
+		messagesLabel2.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		
+		layout.getChildren().addAll(b, spacer1, messagesLabel1, messagesText, spacer2, messagesLabel2);
 		
 		return layout;
 	}
@@ -43,6 +70,7 @@ public class HomeScene extends GameApp {
 	public TilePane getPlayArea() {
 		Button b1 = new Button("Tic-Tac-Toe");
 		b1.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		b1.setStyle("-fx-font: 40 arial;");
 		b1.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
@@ -51,19 +79,29 @@ public class HomeScene extends GameApp {
 		    }
 		});
 		
-		Button b2 = new Button("2");
+		Button b2 = new Button("Maze Game");
 		b2.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		b2.setStyle("-fx-font: 40 arial;");
 		b2.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	try {
+		    		Main.currentStage.hide();
+					Process p = Runtime.getRuntime().exec("java -jar C:\\Users\\Todd\\Desktop\\MazeGame.jar");
+					p.waitFor();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				} finally {
+					Main.currentStage.show();
+				}
 		    }
 		});
 		
-		Button b3 = new Button("3");
+		Button b3 = new Button("Hangman");
 		b3.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		b3.setStyle("-fx-font: 40 arial;");
 		b3.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
@@ -73,8 +111,9 @@ public class HomeScene extends GameApp {
 		    }
 		});
 		
-		Button b4 = new Button("4");
+		Button b4 = new Button("Concentration");
 		b4.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		b4.setStyle("-fx-font: 40 arial;");
 		b4.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
@@ -84,19 +123,20 @@ public class HomeScene extends GameApp {
 		    }
 		});
 		
-		Button b5 = new Button("5");
+		Button b5 = new Button("Connect Four");
 		b5.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		b5.setStyle("-fx-font: 40 arial;");
 		b5.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	ConnectFour G = new ConnectFour();
+		    	Main.currentStage.setScene(G);
 		    }
 		});
 		
-		Button b6 = new Button("6");
+		Button b6 = new Button("Checkers");
 		b6.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		b6.setStyle("-fx-font: 40 arial;");
 		b6.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
@@ -106,8 +146,9 @@ public class HomeScene extends GameApp {
 		    }
 		});
 		
-		Button b7 = new Button("7");
+		Button b7 = new Button("Game 7");
 		b7.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		b7.setStyle("-fx-font: 40 arial;");
 		b7.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
@@ -117,8 +158,9 @@ public class HomeScene extends GameApp {
 		    }
 		});
 		
-		Button b8 = new Button("8");
+		Button b8 = new Button("Game 8");
 		b8.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		b8.setStyle("-fx-font: 40 arial;");
 		b8.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
@@ -128,8 +170,9 @@ public class HomeScene extends GameApp {
 		    }
 		});
 		
-		Button b9 = new Button("9");
+		Button b9 = new Button("Game 9");
 		b9.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		b9.setStyle("-fx-font: 40 arial;");
 		b9.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
