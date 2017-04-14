@@ -14,26 +14,37 @@ public class LaunchScene extends Scene {
 
 	private final static double width = 400;
 	private final static double height = 300;
-	private static VBox layout = new VBox(60);
+	private static VBox layout = new VBox(40);
 	
 	public LaunchScene() {
 		super(layout, width, height);
 		
 		// Set the loading scene title label
-		Label label = new Label("Welcome to Games");
-		label.setFont(Font.font("Verdana", 25));
-		label.setTextFill(Color.WHITE);
+		Label title = new Label("Game Collection");
+		title.setFont(Font.font("Verdana", 25));
+		title.setTextFill(Color.WHITE);
+		
+		// Set the loading scene version label
+		Label version = new Label("Version: 1.0");
+		version.setFont(Font.font("Verdana", 15));
+		version.setTextFill(Color.WHITE);
+		
+		// Set the loading scene creator label
+		Label creator = new Label("Creator: Todd Locker");
+		creator.setFont(Font.font("Verdana", 15));
+		creator.setTextFill(Color.WHITE);
 		
 		// Set the loading scene progress indicator
 		ProgressIndicator indicator = new ProgressIndicator();
 		indicator.setProgress(-0.1);
 		indicator.setMaxSize(50, 50);
-		indicator.setLayoutY(100);
 		
 		layout.setAlignment(Pos.CENTER);
-		layout.getChildren().add(label);
-		layout.getChildren().add(indicator);
 		layout.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
+		layout.getChildren().add(title);
+		layout.getChildren().add(version);
+		layout.getChildren().add(creator);
+		layout.getChildren().add(indicator);
 	}
 
 }

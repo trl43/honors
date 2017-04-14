@@ -41,25 +41,33 @@ public class HomeScene extends GameApp {
 		
 		Pane spacer1 = new Pane();
 		spacer1.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-		spacer1.setPrefHeight(30);
+		spacer1.setPrefHeight(40);
 		
 		Label messagesLabel1 = new Label("Messages:");
 		messagesLabel1.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		
 		TextArea messagesText = new TextArea("Select a game to begin playing!");
 		messagesText.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-		messagesText.setPrefHeight(40);
+		messagesText.setPrefHeight(100);
 		messagesText.setEditable(false);
 		messagesText.setWrapText(true);
 		
 		Pane spacer2 = new Pane();
 		spacer2.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-		spacer2.setPrefHeight(30);
+		spacer2.setPrefHeight(40);
 		
 		Label messagesLabel2 = new Label("HighScore: 0");
+		messagesLabel2.setStyle("-fx-font: 20 arial;");
 		messagesLabel2.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		
-		layout.getChildren().addAll(b, spacer1, messagesLabel1, messagesText, spacer2, messagesLabel2);
+		Pane spacer3 = new Pane();
+		spacer3.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		spacer3.setPrefHeight(40);
+		
+		Button importGame = new Button("Import Game");
+		importGame.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		
+		layout.getChildren().addAll(b, spacer1, messagesLabel1, messagesText, spacer2, messagesLabel2, spacer3, importGame);
 		
 		return layout;
 	}
@@ -134,7 +142,7 @@ public class HomeScene extends GameApp {
 		    }
 		});
 		
-		Button b6 = new Button("Checkers");
+		Button b6 = new Button("Game 6");
 		b6.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b6.setStyle("-fx-font: 40 arial;");
 		b6.setOnAction(new EventHandler<ActionEvent>() {
