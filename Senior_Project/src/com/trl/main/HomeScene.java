@@ -1,7 +1,5 @@
 package com.trl.main;
 
-import java.io.IOException;
-
 import com.trl.tictactoe.TicTacToe;
 
 import ConnectFour.ConnectFour;
@@ -94,13 +92,8 @@ public class HomeScene extends GameApp {
 		    @Override
 			public void handle(ActionEvent e) {
 		    	try {
+		    		// Add game call here
 		    		Main.currentStage.hide();
-					Process p = Runtime.getRuntime().exec("java -jar C:\\Users\\Todd\\Desktop\\MazeGame.jar");
-					p.waitFor();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
 				} finally {
 					Main.currentStage.show();
 				}
@@ -113,9 +106,7 @@ public class HomeScene extends GameApp {
 		b3.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	// Add game call here
 		    }
 		});
 		
@@ -125,9 +116,7 @@ public class HomeScene extends GameApp {
 		b4.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	// Add game call here
 		    }
 		});
 		
@@ -148,45 +137,52 @@ public class HomeScene extends GameApp {
 		b6.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	// Add game call here
 		    }
 		});
 		
-		Button b7 = new Button("Game 7");
+		Button b7 = new Button("Pinball");
 		b7.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b7.setStyle("-fx-font: 40 arial;");
 		b7.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	try {
+		    		// Add game call here
+//		    		Main.currentStage.hide();
+				} finally {
+					Main.currentStage.show();
+				}
 		    }
 		});
 		
-		Button b8 = new Button("Game 8");
+		Button b8 = new Button("Shooter");
 		b8.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b8.setStyle("-fx-font: 40 arial;");
 		b8.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	try {
+		    		// Add game call here
+//		    		Main.currentStage.hide();
+				} finally {
+					Main.currentStage.show();
+				}
 		    }
 		});
 		
-		Button b9 = new Button("Game 9");
+		Button b9 = new Button("Translate");
 		b9.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		b9.setStyle("-fx-font: 40 arial;");
 		b9.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 			public void handle(ActionEvent e) {
-//		    	TicTacToe G = new TicTacToe();
-//		        primary.setScene(G);
-//		        G.play();
+		    	try {
+		    		// Add game call here
+//		    		Main.currentStage.hide();
+				} finally {
+					Main.currentStage.show();
+				}
 		    }
 		});
 		

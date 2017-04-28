@@ -31,7 +31,7 @@ public class ConnectFour extends GameApp {
 	private Button playAgainButton;
 	private String player1 = "";
 	private String player2 = "";
-	private boolean isPlayer1Turn = true;
+//	private boolean isPlayer1Turn = true;
 	
 	
 	

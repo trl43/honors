@@ -26,7 +26,7 @@ public class Main extends Application {
 		primaryStage.setScene(new LaunchScene());
 		primaryStage.show();
 		
-		new Timeline(new KeyFrame(Duration.millis(1000), ae -> showHomeScene(primaryStage))).play();
+		new Timeline(new KeyFrame(Duration.millis(3000), ae -> showHomeScene(primaryStage))).play();
 	}
 	
 	
